@@ -8,11 +8,13 @@
 
 ## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72). 
 
+## WARNING: If you are **NOT** using Windows 10 Aniversary update or higher **or** Windows Server 2016 or higher, then this will not work for you. Also, this is using a alpha/beta version of a .NET framework, so it is not production ready!
+
 =======
 
 ## 2018-06-14 Initial Commit
 
-* Build 620 (build date Monday 11th June 2018) is now obtainable through the `releases` tab.
+* Uploaded build 3621 of .Net framework 4.8 for easier access.
 * Fixed references that blocked demo applications from launching.
 * Start work on getting the system themes to display the extras. 
   * Not perfect but at least the "Chrome" displays the intended buttons and text(s).
