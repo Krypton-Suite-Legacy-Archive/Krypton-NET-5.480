@@ -1,4 +1,4 @@
-# <img src="https://rawgit.com/Wagnerp/Krypton-NET-4.7/master/Help/Output/Logo.PNG">-NET-4.80
+# <img src="https://github.com/Wagnerp/Krypton-NET-4.72/blob/master/Assets/PNG/Square%20Design/Main%20Icon/64%20x%2064/Square%20Design%2064%20x%2064%20New%20Green.png">-NET-4.80
 
 =======
 
@@ -9,6 +9,20 @@
 ## NOTE: With the advent of Windows 10 1803 being released to the general public, I am pleased to announce the availability of a 4.72 release that will support the .NET 4.7.2 framework. You can follow the project [here](https://github.com/Wagnerp/Krypton-NET-4.72). 
 
 ## WARNING: If you are **NOT** using Windows 10 Aniversary update or higher **or** Windows Server 2016 or higher, then this will not work for you. Also, this is using a alpha/beta version of a .NET framework, so it is not production ready!
+
+=======
+
+## 2018-09-25 Build 643
+* Allow the developer to override the `Ctrl+c to copy` text in the Caption
+* The `Import()` and `Export()` methods will now use the native `KryptonMessageBox` instead of a system one
+* Removed the phantom `KryptonPalette` component
+* Now you can access the full `FilePath` of the loaded palette XML file
+* New icon (not propagated through all the example applications yet)
+* Fix KryptonForm does not respect Minimum Size set in designer #57
+  * And sort out some spelling mistakes in the `VisualForm.cs`
+* `SeparatorController.cs` & `DragObject` bug fix, #79
+  * Fix for bug Issue, #79, courtesy of [James Simms](https://github.com/jwsimms)
+* General bugfixes
 
 =======
 

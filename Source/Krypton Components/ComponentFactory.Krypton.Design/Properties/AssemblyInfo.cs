@@ -6,14 +6,14 @@
 //  Mornington, Vic 3931, Australia and are supplied subject to licence terms.
 // 
 //  Modifications by Peter Wagner(aka Wagnerp) & Simon Coghlan(aka Smurf-IV) 2017 - 2018. All rights reserved. (https://github.com/Wagnerp/Krypton-NET-4.80)
-//  Version 4.80.0.0  www.ComponentFactory.com
+//  Version 4.7.0.0  www.ComponentFactory.com
 // *****************************************************************************
 
 using System.Reflection;
 
-[assembly: AssemblyVersion("4.801.0.0")]
-[assembly: AssemblyFileVersion("4.801.564.0")]
-[assembly: AssemblyInformationalVersion("4.801.564.0")]
+[assembly: AssemblyVersion("4.80.0.0")]
+[assembly: AssemblyFileVersion("4.80.564.0")]
+[assembly: AssemblyInformationalVersion("4.80.564.0")]
 [assembly: AssemblyCopyright("© Component Factory Pty Ltd, 2006-2018. Then modifications by Peter Wagner (aka Wagnerp) & Simon Coghlan (aka Smurf-IV) 2017-2018. All rights reserved.")]
 [assembly: AssemblyProduct("Krypton Design")]
 [assembly: AssemblyDefaultAlias("ComponentFactory.Krypton.Design.dll")]
