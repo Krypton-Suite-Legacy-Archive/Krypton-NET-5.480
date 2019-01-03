@@ -1787,7 +1787,7 @@
             this.labelKryptonExplorer.StateCommon.ShortText.Hint = ComponentFactory.Krypton.Toolkit.PaletteTextHint.AntiAlias;
             this.labelKryptonExplorer.TabIndex = 0;
             this.labelKryptonExplorer.Values.ExtraText = "Built for .Net 4.7";
-            this.labelKryptonExplorer.Values.Text = "Krypton 4.80";
+            this.labelKryptonExplorer.Values.Text = "Krypton 5.480";
             // 
             // pictureBoxRight
             // 
