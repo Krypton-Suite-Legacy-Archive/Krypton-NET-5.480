@@ -10,17 +10,17 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
 using System.ComponentModel;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provide a NumericUpDown with Krypton styling applied.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonNumericUpDown), "ToolboxBitmaps.KryptonNumericUpDown.bmp")]
     [DefaultEvent("ValueChanged")]
 	[DefaultProperty("Value")]
@@ -2056,9 +2056,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }
@@ -2097,10 +2095,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }

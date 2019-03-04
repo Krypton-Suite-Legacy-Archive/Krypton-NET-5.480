@@ -10,11 +10,11 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
@@ -1827,9 +1827,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }
@@ -1859,10 +1857,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }

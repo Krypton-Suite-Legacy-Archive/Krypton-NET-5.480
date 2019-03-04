@@ -10,19 +10,19 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provide a RichTextBox with Krypton styling applied.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonRichTextBox), "ToolboxBitmaps.KryptonRichTextBox.bmp")]
     [DefaultEvent("TextChanged")]
 	[DefaultProperty("Text")]
@@ -2268,10 +2268,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }
@@ -2427,9 +2429,7 @@ namespace ComponentFactory.Krypton.Toolkit
                                                                      CommonHelper.ContentStyleFromLabelStyle(toolTipStyle));
 
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
-
-                        // Show relative to the provided screen rectangle
-                        _visualPopupToolTip.ShowCalculatingSize(RectangleToScreen(e.Target.ClientRectangle));
+                        _visualPopupToolTip.ShowRelativeTo(e.Target, e.ControlMousePosition);
                     }
                 }
             }

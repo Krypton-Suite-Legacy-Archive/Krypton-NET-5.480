@@ -10,18 +10,18 @@
 // *****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
 {
-	/// <summary>
+    /// <summary>
     /// Provide a ListBox with Krypton styling applied.
-	/// </summary>
-	[ToolboxItem(true)]
+    /// </summary>
+    [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonListBox), "ToolboxBitmaps.KryptonListBox.bmp")]
     [DefaultEvent("SelectedIndexChanged")]
     [DefaultProperty("Items")]
@@ -1806,10 +1806,12 @@ namespace ComponentFactory.Krypton.Toolkit
                 if (_trackingMouseEnter)
                 {
                     OnTrackMouseEnter(EventArgs.Empty);
+                    OnMouseEnter(e);
                 }
                 else
                 {
                     OnTrackMouseLeave(EventArgs.Empty);
+                    OnMouseLeave(e);
                 }
             }
         }

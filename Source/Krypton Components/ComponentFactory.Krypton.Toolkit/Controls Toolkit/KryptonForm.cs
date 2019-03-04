@@ -186,6 +186,9 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // Create the view manager instance
             ViewManager = new ViewManager(this, _drawDocker);
+
+            // Set the UseDropShadow to true
+            UseDropShadow = true;
         }
 
         /// <summary>
@@ -1506,7 +1509,7 @@ namespace ComponentFactory.Krypton.Toolkit
                         _visualPopupToolTip.Disposed += OnVisualPopupToolTipDisposed;
 
                         // Show relative to the provided screen point
-                        _visualPopupToolTip.ShowCalculatingSize(e.ScreenPt);
+                        _visualPopupToolTip.ShowCalculatingSize(e.ControlMousePosition);
                     }
                 }
             }
@@ -1592,12 +1595,14 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Calls the method that draws the drop shadow around the form.
         /// </summary>
         /// <param name="useDropShadow">Use dropshadow user input value.</param>
-        private void UpdateDropShadowDraw(bool useDropShadow)
+        public void UpdateDropShadowDraw(bool useDropShadow)
         {
             if (useDropShadow)
             {
                 DrawDropShadow();
             }
+
+            Invalidate();
         }
 
         /// <summary>
@@ -1607,6 +1612,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private void DrawDropShadow()
         {
             GetCreateParams();
+
+            // Redraw
+            Invalidate();
         }
 
         /// <summary>
