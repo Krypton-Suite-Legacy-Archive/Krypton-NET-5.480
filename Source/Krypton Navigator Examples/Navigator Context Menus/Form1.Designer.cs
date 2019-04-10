@@ -325,7 +325,7 @@ namespace NavigatorContextMenus
             this.page4.Size = new System.Drawing.Size(300, 113);
             this.page4.Text = "Pound";
             this.page4.ToolTipTitle = "Page ToolTip";
-            this.page4.UniqueName = "AB472A5702144EA7AB472A5702144EA7";
+            this.page4.UniqueName = "AB480A5702144EA7AB480A5702144EA7";
             // 
             // kryptonLabel4
             // 

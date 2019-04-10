@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace ComponentFactory.Krypton.Toolkit
@@ -89,6 +90,8 @@ namespace ComponentFactory.Krypton.Toolkit
         private FormWindowState _lastWindowState;
         private string _textExtra;
         private string _oldText;
+        private string _administratorText;
+        private bool _isInAdministratorMode;
         private bool _allowFormChrome;
         private bool _allowStatusStripMerge;
         private bool _recreateButtons;
@@ -252,7 +255,7 @@ namespace ComponentFactory.Krypton.Toolkit
         public bool AllowButtonSpecToolTips { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating if custome chrome is allowed.
+        /// Gets or sets a value indicating if custom chrome is allowed.
         /// </summary>
         [Category("Visuals")]
         [Description("Should custom chrome be allowed for this KryptonForm instance.")]
@@ -371,6 +374,34 @@ namespace ComponentFactory.Krypton.Toolkit
                 UpdateDropShadowDraw(_useDropShadow);
             }
         }
+
+        /// <summary>
+        /// Gets or sets the administrator text.
+        /// </summary>
+        /// <value>
+        /// The administrator text.
+        /// </value>
+        [Category("Appearance"), Description("Sets the window title in accordance to the current user elevation."), DefaultValue("Administrator")]
+        public string AdministratorText
+        {
+            get => _administratorText;
+
+            set
+            {
+                _administratorText = value;
+
+                PerformNeedPaint(false);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is in administrator mode.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is in administrator mode; otherwise, <c>false</c>.
+        /// </value>
+        [Category("Appearance"), Description("Is the user currently an administrator."), DefaultValue(false)]
+        public bool IsInAdministratorMode { get => _isInAdministratorMode; set => _isInAdministratorMode = value; }
 
         /// <summary>
         /// Gets access to the common form appearance entries that other states can override.
@@ -696,19 +727,22 @@ namespace ComponentFactory.Krypton.Toolkit
                         // Failed so we convert the Icon directly instead of trying to get a sized version first
                         _cacheBitmap = _cacheIcon.ToBitmap();
                     }
-                    catch { }
+                    catch
+                    {
+                        //
+                    }
                 }
 
-                // If the ToBitmap() failes then we might still have no bitmap for use
+                // If the ToBitmap() fails then we might still have no bitmap for use
                 if (_cacheBitmap != null)
                 {
                     // If the image is not the required size, create it
                     if (_cacheBitmap.Size != CAPTION_ICON_SIZE)
                     {
-                        // Create a resized verison of the bitmap
+                        // Create a resized version of the bitmap
                         Bitmap resizedBitmap = new Bitmap(_cacheBitmap, CAPTION_ICON_SIZE);
 
-                        // Must gradcefully remove unused resources!
+                        // Must gracefully remove unused resources!
                         _cacheBitmap.Dispose();
 
                         // Cache for future access
@@ -800,6 +834,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             // We only apply custom chrome when control is already created and positioned
             UpdateCustomChromeDecision();
+
+            UpdateTitle(GetHasCurrentInstanceGotAdministrativeRights());
         }
 
         /// <summary>
@@ -1198,6 +1234,11 @@ namespace ComponentFactory.Krypton.Toolkit
                                                     PaletteMetricInt.HeaderButtonEdgeInsetCustom2,
                                                     PaletteMetricPadding.HeaderButtonPaddingCustom2);
                     break;
+                case HeaderStyle.Custom3:
+                    _buttonManager.SetDockerMetrics(drawDocker, palette,
+                        PaletteMetricInt.HeaderButtonEdgeInsetCustom3,
+                        PaletteMetricPadding.HeaderButtonPaddingCustom3);
+                    break;
                 default:
                     // Should never happen!
                     Debug.Assert(false);
@@ -1293,7 +1334,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     // Is a layout required?
                     if (NeedLayout || (GetDefinedIcon() != _cacheIcon))
                     {
-                        // Ask the view to peform a layout
+                        // Ask the view to perform a layout
                         using (ViewLayoutContext context = new ViewLayoutContext(ViewManager,
                                                                                  this,
                                                                                  RealWindowRectangle,
@@ -1645,6 +1686,47 @@ namespace ComponentFactory.Krypton.Toolkit
                 }
 
                 return cp;
+            }
+        }
+        #endregion
+
+        #region Admin Code        
+        /// <summary>
+        /// Gets the has current instance got administrative rights.
+        /// </summary>
+        /// <returns></returns>
+        private static bool GetHasCurrentInstanceGotAdministrativeRights()
+        {
+            try
+            {
+                WindowsPrincipal principal = new WindowsPrincipal(WindowsIdentity.GetCurrent());
+
+                bool hasAdministrativeRights = principal.IsInRole(WindowsBuiltInRole.Administrator);
+
+                if (hasAdministrativeRights)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Updates the title.
+        /// </summary>
+        /// <param name="hasAdministrativeRights">if set to <c>true</c> [has administrative rights].</param>
+        private void UpdateTitle(bool hasAdministrativeRights)
+        {
+            if (hasAdministrativeRights)
+            {
+                Text = $"{ Text } - [{ AdministratorText }]";
             }
         }
         #endregion

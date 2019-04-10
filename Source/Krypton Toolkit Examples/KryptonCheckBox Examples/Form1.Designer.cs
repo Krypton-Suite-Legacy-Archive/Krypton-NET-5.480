@@ -65,7 +65,7 @@ namespace KryptonCheckBoxExamples
             this.groupBox4.Controls.Add(this.propertyGrid);
             this.groupBox4.Location = new System.Drawing.Point(235, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(297, 472);
+            this.groupBox4.Size = new System.Drawing.Size(297, 480);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Properties for Selected KryptonCheckBox";

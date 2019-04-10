@@ -115,7 +115,7 @@
     <None Include="Resources\close16.gif" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="KryptonToolkitSuite5470">
+    <PackageReference Include="KryptonToolkitSuite5480">
       <Version>5.480.720</Version>
     </PackageReference>
   </ItemGroup>

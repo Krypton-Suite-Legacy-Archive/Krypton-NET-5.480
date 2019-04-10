@@ -25,7 +25,7 @@ namespace ComponentFactory.Krypton.Toolkit
     /// </summary>
     [ToolboxItem(true)]
     [ToolboxBitmap(typeof(KryptonManager), "ToolboxBitmaps.KryptonManager.bmp")]
-    [Designer(typeof(ComponentFactory.Krypton.Toolkit.KryptonManagerDesigner))]
+    [Designer(typeof(KryptonManagerDesigner))]
     [DefaultProperty("GlobalPaletteMode")]
     [Description("Access global Krypton settings.")]
     [ClassInterface(ClassInterfaceType.AutoDispatch)]
@@ -49,8 +49,9 @@ namespace ComponentFactory.Krypton.Toolkit
         private static PaletteOffice2007White _paletteOffice2007White;
         private static PaletteOffice2007Black _paletteOffice2007Black;
         private static PaletteOffice2010Blue _paletteOffice2010Blue;
-        private static PaletteOffice2010Silver _paletteOffice2010Silver;
+        private static PaletteOffice2010White _paletteOffice2010White;
         private static PaletteOffice2010Black _paletteOffice2010Black;
+        private static PaletteOffice2010Silver _paletteOffice2010Silver;
         private static PaletteOffice2013 _paletteOffice2013;
         private static PaletteOffice2013White _paletteOffice2013White;
         private static PaletteSparkleBlue _paletteSparkleBlue;
@@ -438,6 +439,7 @@ namespace ComponentFactory.Krypton.Toolkit
                     case PaletteModeManager.Office2010Silver:
                         return PaletteOffice2010Silver;
                     case PaletteModeManager.Office2010White:
+                        return PaletteOffice2010White;
                     case PaletteModeManager.Office2010Black:
                         return PaletteOffice2010Black;
                     case PaletteModeManager.Office2013:
@@ -493,6 +495,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 case PaletteMode.Office2010Silver:
                     return PaletteOffice2010Silver;
                 case PaletteMode.Office2010White:
+                    return PaletteOffice2010White;
                 case PaletteMode.Office2010Black:
                     return PaletteOffice2010Black;
                 case PaletteMode.Office2013:
@@ -564,6 +567,8 @@ namespace ComponentFactory.Krypton.Toolkit
         /// Gets the single instance of the Black variant Office 2010 palette.
         /// </summary>
         public static PaletteOffice2010Black PaletteOffice2010Black => _paletteOffice2010Black ?? (_paletteOffice2010Black = new PaletteOffice2010Black());
+
+        public static PaletteOffice2010White PaletteOffice2010White => _paletteOffice2010White ?? (_paletteOffice2010White = new PaletteOffice2010White());
 
         /// <summary>
         /// Gets the single instance of the Office 2013 palette.
@@ -778,6 +783,8 @@ namespace ComponentFactory.Krypton.Toolkit
 
             _paletteOffice2010Black?.UserPreferenceChanged();
 
+            _paletteOffice2010White?.UserPreferenceChanged();
+
             _paletteOffice2013?.UserPreferenceChanged();
 
             _paletteOffice2013White?.UserPreferenceChanged();
@@ -793,6 +800,10 @@ namespace ComponentFactory.Krypton.Toolkit
             _paletteOffice365Blue?.UserPreferenceChanged();
 
             _paletteOffice365Silver?.UserPreferenceChanged();
+
+            _paletteOffice365White?.UserPreferenceChanged();
+
+            
 
             UpdateToolStripManager();
         }

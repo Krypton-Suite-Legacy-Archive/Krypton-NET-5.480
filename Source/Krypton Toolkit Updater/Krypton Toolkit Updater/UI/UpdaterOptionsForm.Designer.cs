@@ -343,7 +343,7 @@
             // 
             // klblCurrentStatus
             // 
-            this.klblCurrentStatus.Location = new System.Drawing.Point(472, 19);
+            this.klblCurrentStatus.Location = new System.Drawing.Point(480, 19);
             this.klblCurrentStatus.Name = "klblCurrentStatus";
             this.klblCurrentStatus.Size = new System.Drawing.Size(142, 26);
             this.klblCurrentStatus.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
