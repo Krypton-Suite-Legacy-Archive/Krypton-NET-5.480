@@ -200,7 +200,7 @@ namespace ExpandingHeaderGroupsSplitters
             // 
             this.kryptonSplitContainerHorizontal.Panel2.Controls.Add(this.kryptonSplitContainerVertical);
             this.kryptonSplitContainerHorizontal.Panel2MinSize = 100;
-            this.kryptonSplitContainerHorizontal.Size = new System.Drawing.Size(480, 299);
+            this.kryptonSplitContainerHorizontal.Size = new System.Drawing.Size(450, 299);
             this.kryptonSplitContainerHorizontal.SplitterDistance = 167;
             this.kryptonSplitContainerHorizontal.TabIndex = 0;
             // 
@@ -226,7 +226,7 @@ namespace ExpandingHeaderGroupsSplitters
             // 
             this.buttonSpecLeftRight.ColorMap = System.Drawing.Color.Black;
             this.buttonSpecLeftRight.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
-            this.buttonSpecLeftRight.UniqueName = "F83F8E4800614585F83F8E4800614585";
+            this.buttonSpecLeftRight.UniqueName = "F83F8E4720614585F83F8E4720614585";
             // 
             // textBoxLeft
             // 
