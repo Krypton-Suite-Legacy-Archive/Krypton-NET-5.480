@@ -20,7 +20,10 @@
 
 =======
 
-## WARNING: If you are **NOT** using Windows 10 Anniversary update or higher **or** Windows Server 2016 or higher, then this will not work for you. Also, this is using a alpha/beta version of a .NET framework, so it is not production ready!
+## 2019-04-15 Build 901 - Drop Shadows
+* New feature - now you can specify drop shadows on `KryptonForm` [#121](https://github.com/Wagnerp/Krypton-NET-5.470/issues/121). By design (or by accident :)), changing the shadow or form size values will display a offset of the shadow outcome.
+* Patch for [#142](https://github.com/Wagnerp/Krypton-NET-5.470/issues/142) ribbon tab text not working, courtesy of Tape-Worm
+* Build 901 (build date Monday 15th April, 2019) is now available on NuGet
 
 =======
 
