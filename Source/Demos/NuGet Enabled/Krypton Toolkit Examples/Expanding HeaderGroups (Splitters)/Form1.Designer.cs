@@ -226,7 +226,7 @@ namespace ExpandingHeaderGroupsSplitters
             // 
             this.buttonSpecLeftRight.ColorMap = System.Drawing.Color.Black;
             this.buttonSpecLeftRight.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.ArrowLeft;
-            this.buttonSpecLeftRight.UniqueName = "F83F8E4800614585F83F8E4800614585";
+            this.buttonSpecLeftRight.UniqueName = "F83F8E4720614585F83F8E4720614585";
             // 
             // textBoxLeft
             // 

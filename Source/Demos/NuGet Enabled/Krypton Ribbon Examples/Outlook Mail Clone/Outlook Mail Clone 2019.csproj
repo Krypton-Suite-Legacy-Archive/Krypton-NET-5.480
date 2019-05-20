@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B574C480-97B7-43C6-AC79-0BE2640B8A3F}</ProjectGuid>
+    <ProjectGuid>{B574C472-97B7-43C6-AC79-0BE2640B8A3F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OutlookMailClone</RootNamespace>

@@ -922,17 +922,17 @@ namespace KryptonExplorer
 
         private void KbtnKryptonToolkitPackage_Click(object sender, EventArgs e)
         {
-            Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5470/");
+            Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5480/");
         }
 
         private void KbtnKryptonExtendedToolkitPackage_Click(object sender, EventArgs e)
         {
-            Process.Start("https://www.nuget.org/packages/KryptonExtendedToolkit5470/");
+            Process.Start("https://www.nuget.org/packages/KryptonExtendedToolkit5480/");
         }
 
         private void KbtnKryptonDemoApplicationPackage_Click(object sender, EventArgs e)
         {
-            Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5470Demos/");
+            Process.Start("https://www.nuget.org/packages/KryptonToolkitSuite5480Demos/");
         }
     }
 }

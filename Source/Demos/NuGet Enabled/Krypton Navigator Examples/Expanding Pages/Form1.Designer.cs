@@ -705,7 +705,7 @@ namespace ExpandingPages
             this.kryptonPage4.Size = new System.Drawing.Size(364, 86);
             this.kryptonPage4.Text = "Buttons";
             this.kryptonPage4.ToolTipTitle = "Page ToolTip";
-            this.kryptonPage4.UniqueName = "DD2480F0D7BA4602DD2480F0D7BA4602";
+            this.kryptonPage4.UniqueName = "DD2472F0D7BA4602DD2472F0D7BA4602";
             // 
             // button7
             // 
