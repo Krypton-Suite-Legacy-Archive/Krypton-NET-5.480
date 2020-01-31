@@ -1,6 +1,6 @@
 ﻿// *****************************************************************************
 // BSD 3-Clause License (https://github.com/ComponentFactory/Krypton/blob/master/LICENSE)
-//  © Component Factory Pty Ltd, 2006-2020, All rights reserved.
+//  © Component Factory Pty Ltd, 2006 - 2016, All rights reserved.
 // The software and associated documentation supplied hereunder are the 
 //  proprietary information of Component Factory Pty Ltd, 13 Swallows Close, 
 //  Mornington, Vic 3931, Australia and are supplied subject to license terms.
@@ -105,9 +105,9 @@ namespace ComponentFactory.Krypton.Toolkit
         /// <param name="rowIndex">Row of column being processed.</param>
         /// <param name="constraintSize">Maximum allowed size.</param>
         /// <returns>Requested ideal size for the cell.</returns>
-        protected override Size GetPreferredSize(Graphics graphics,
-            DataGridViewCellStyle cellStyle,
-            int rowIndex,
+        protected override Size GetPreferredSize(Graphics graphics, 
+            DataGridViewCellStyle cellStyle, 
+            int rowIndex, 
             Size constraintSize)
         {
             try
@@ -131,6 +131,10 @@ namespace ComponentFactory.Krypton.Toolkit
                 bool pressed = currentCell && ((ButtonStateInternal & ButtonState.Pushed) == ButtonState.Pushed);
 
                 // Update the button state to reflect the tracking/pressed values
+                if (base.ReadOnly)
+                {
+                    _viewButton.ElementState = PaletteState.Disabled;
+                }
                 if (pressed)
                 {
                     _viewButton.ElementState = PaletteState.Pressed;
@@ -138,10 +142,6 @@ namespace ComponentFactory.Krypton.Toolkit
                 else if (tracking)
                 {
                     _viewButton.ElementState = PaletteState.Tracking;
-                }
-                else if (base.ReadOnly)
-                {
-                    _viewButton.ElementState = PaletteState.Disabled;
                 }
                 else
                 {
@@ -238,6 +238,10 @@ namespace ComponentFactory.Krypton.Toolkit
                         bool pressed = currentCell && ((ButtonStateInternal & ButtonState.Pushed) == ButtonState.Pushed);
 
                         // Update the button state to reflect the tracking/pressed values
+                        if (base.ReadOnly)
+                        {
+                            _viewButton.ElementState = PaletteState.Disabled;
+                        }
                         if (pressed)
                         {
                             _viewButton.ElementState = PaletteState.Pressed;
@@ -245,10 +249,6 @@ namespace ComponentFactory.Krypton.Toolkit
                         else if (tracking)
                         {
                             _viewButton.ElementState = PaletteState.Tracking;
-                        }
-                        else if (base.ReadOnly)
-                        {
-                            _viewButton.ElementState = PaletteState.Disabled;
                         }
                         else
                         {
@@ -295,7 +295,7 @@ namespace ComponentFactory.Krypton.Toolkit
                             // Perform actual layout inside that area
                             _viewButton.Layout(layoutContext);
                         }
-
+                            
                         // Ask the element to draw now
                         _viewButton.Render(renderContext);
 
@@ -331,7 +331,7 @@ namespace ComponentFactory.Krypton.Toolkit
                 _shortTextValue = new ShortTextValue();
 
                 // Create view element for drawing the actual button
-                _viewButton = new ViewDrawButton(_palette, _palette, _palette,
+                _viewButton = new ViewDrawButton(_palette, _palette, _palette, 
                     _palette, _palette, _palette, _palette,
                     new PaletteMetricRedirect(kDGV.Redirector),
                     _shortTextValue, VisualOrientation.Top, false);
